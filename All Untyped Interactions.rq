@@ -4,6 +4,9 @@
 #+ tags:
 #+   - Interaction Lists
 
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp:      <http://vocabularies.wikipathways.org/wp#> 
+
 SELECT DISTINCT ?Interaction
 WHERE {
   ?Interaction dcterms:isPartOf ?pathway ;
