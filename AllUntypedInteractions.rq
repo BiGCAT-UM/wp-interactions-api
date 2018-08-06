@@ -1,0 +1,18 @@
+#+ summary: Lists all untyped interactions
+#+ endpoint_in_url: False
+#+ endpoint: http://sparql.wikipathways.org/
+#+ tags:
+#+   - Interaction Lists
+
+SELECT DISTINCT ?Interaction
+WHERE {
+  ?Interaction dcterms:isPartOf ?pathway ;
+               a wp:Interaction .
+  MINUS {?Interaction a wp:DirectedInteraction .}
+  MINUS {?Interaction a wp:TranscriptionTranslation}
+  MINUS {?Interaction a wp:Conversion}
+  MINUS {?Interaction a wp:Inhibition}
+  MINUS {?Interaction a wp:Catalysis}
+  MINUS {?Interaction a wp:Stimulation}
+  MINUS {?Interaction a wp:Binding}
+}
