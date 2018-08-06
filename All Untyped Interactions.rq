@@ -7,15 +7,14 @@
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX wp:      <http://vocabularies.wikipathways.org/wp#> 
 
-SELECT DISTINCT ?Interaction
-WHERE {
-  ?Interaction dcterms:isPartOf ?pathway ;
+SELECT DISTINCT ?interaction WHERE {
+  ?interaction dcterms:isPartOf ?pathway ;
                a wp:Interaction .
-  MINUS {?Interaction a wp:DirectedInteraction .}
-  MINUS {?Interaction a wp:TranscriptionTranslation}
-  MINUS {?Interaction a wp:Conversion}
-  MINUS {?Interaction a wp:Inhibition}
-  MINUS {?Interaction a wp:Catalysis}
-  MINUS {?Interaction a wp:Stimulation}
-  MINUS {?Interaction a wp:Binding}
+  MINUS {?interaction a wp:DirectedInteraction .}
+  MINUS {?interaction a wp:TranscriptionTranslation}
+  MINUS {?interaction a wp:Conversion}
+  MINUS {?interaction a wp:Inhibition}
+  MINUS {?interaction a wp:Catalysis}
+  MINUS {?interaction a wp:Stimulation}
+  MINUS {?interaction a wp:Binding}
 }
