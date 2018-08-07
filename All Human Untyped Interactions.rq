@@ -1,0 +1,21 @@
+#+ summary: Lists all human untyped interactions
+#+ endpoint_in_url: False
+#+ endpoint: http://sparql.wikipathways.org/
+#+ tags:
+#+   - Human Interaction Lists
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp:      <http://vocabularies.wikipathways.org/wp#> 
+
+SELECT DISTINCT ?interaction WHERE {
+  ?pathway wp:organismName "Homo sapiens"^^xsd:string .
+  ?interaction dcterms:isPartOf ?pathway ;
+               a wp:Interaction .
+  MINUS {?interaction a wp:DirectedInteraction .}
+  MINUS {?interaction a wp:TranscriptionTranslation}
+  MINUS {?interaction a wp:Conversion}
+  MINUS {?interaction a wp:Inhibition}
+  MINUS {?interaction a wp:Catalysis}
+  MINUS {?interaction a wp:Stimulation}
+  MINUS {?interaction a wp:Binding}
+}
